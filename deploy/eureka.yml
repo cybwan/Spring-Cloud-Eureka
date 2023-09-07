@@ -27,6 +27,6 @@ spec:
     spec:
       containers:
         - name: eureka-service
-          image: localhost:5000/flomesh/spring-eureka-demo:server-eureka
+          image: cybwan/spring-eureka-demo:server-eureka
           ports:
             - containerPort: 8761

@@ -55,7 +55,7 @@ spec:
     spec:
       containers:
         - name: provider2
-          image: localhost:5000/flomesh/spring-eureka-demo:provider2
+          image: cybwan/spring-eureka-demo:provider2
           ports:
             - containerPort: 7902
           volumeMounts:

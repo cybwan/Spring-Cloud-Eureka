@@ -2,7 +2,7 @@
 
 DOCKER_BUILDX_OUTPUT ?= type=registry
 DOCKER_BUILDX_PLATFORM ?= linux/amd64
-CTR_REGISTRY ?= cybwan
+CTR_REGISTRY = cybwan
 
 .PHONY: buildx-context
 buildx-context:
@@ -139,6 +139,11 @@ $(DOCKER_SERVICE_TARGETS): NAME=$(@:docker-build-%=%)
 
 .PHONY: docker-build
 docker-build: buildx-context clean $(DOCKER_SERVICE_TARGETS)
+
+.PHONY: docker-build-cross
+docker-build-cross: DOCKER_BUILDX_PLATFORM=linux/amd64,linux/arm64
+docker-build-cross: docker-build
+
 
 .PHONY: deploy-eureka
 deploy-eureka:

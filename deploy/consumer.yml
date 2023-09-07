@@ -53,7 +53,7 @@ spec:
     spec:
       containers:
         - name: consumer
-          image: localhost:5000/flomesh/spring-eureka-demo:consumer
+          image: cybwan/spring-eureka-demo:consumer
           ports:
             - containerPort: 8001
           volumeMounts:
