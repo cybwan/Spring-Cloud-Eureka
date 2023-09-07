@@ -1,0 +1,5 @@
+FROM openjdk:8-jdk-alpine
+VOLUME /tmp
+ADD cloud-provider1/target/cloud-provider1-1.0.0.jar app.jar
+ENTRYPOINT ["java","-jar","app.jar","-Dspring.config.location=file:///config/application.yml"]
+EXPOSE 7901
