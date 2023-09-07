@@ -18,9 +18,9 @@ data:
     eureka:
       client:
         serviceUrl:
-          defaultZone: http://jorian:123456@eureka-service:8761/eureka
+          defaultZone: http://flomesh:123456@eureka-service.cloud:8761/eureka
       instance:
-        instance-id: jcloud-provider1 #修改Eureka上的默认描述信息
+        instance-id: cloud-provider1 #修改Eureka上的默认描述信息
         prefer-ip-address: true
     logging:
       level:

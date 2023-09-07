@@ -4,7 +4,7 @@ server:
     context-path:
 spring:
   application:
-    name: j-cloud-consumer
+    name: cloud-consumer
 
 # eureka 配置
 eureka:
@@ -12,7 +12,7 @@ eureka:
     serviceUrl:
       defaultZone: http://flomesh:123456@localhost:8761/eureka
   instance:
-    instance-id: j-cloud-consumer #修改Eureka上的默认描述信息
+    instance-id: cloud-consumer #修改Eureka上的默认描述信息
 logging:
   level:
     root: INFO

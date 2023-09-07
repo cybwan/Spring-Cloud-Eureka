@@ -147,49 +147,57 @@ docker-build-cross: docker-build
 
 .PHONY: deploy-eureka
 deploy-eureka:
-	kubectl apply -f deploy/eureka.yml
+	kubectl apply -n cloud -f deploy/eureka.yml
 
 .PHONY: undeploy-eureka
 undeploy-eureka:
-	kubectl delete -f deploy/eureka.yml
+	kubectl delete -n cloud -f deploy/eureka.yml
 
 .PHONY: deploy-provider1
 deploy-provider1:
-	kubectl apply -f deploy/provider1.yml
+	kubectl apply -n cloud -f deploy/provider1.yml
 
 .PHONY: undeploy-provider1
 undeploy-provider1:
-	kubectl delete -f deploy/provider1.yml
+	kubectl delete -n cloud -f deploy/provider1.yml
 
 .PHONY: deploy-provider2
 deploy-provider2:
-	kubectl apply -f deploy/provider2.yml
+	kubectl apply -n cloud -f deploy/provider2.yml
 
 .PHONY: undeploy-provider2
 undeploy-provider2:
-	kubectl delete -f deploy/provider2.yml
+	kubectl delete -n cloud -f deploy/provider2.yml
 
 .PHONY: deploy-consumer
 deploy-consumer:
-	kubectl apply -f deploy/consumer.yml
+	kubectl apply -n cloud -f deploy/consumer.yml
 
 .PHONY: undeploy-consumer
 undeploy-consumer:
-	kubectl delete -f deploy/consumer.yml
+	kubectl delete -n cloud -f deploy/consumer.yml
 
 .PHONY: deploy-curl
 deploy-curl:
-	kubectl apply -f deploy/curl.yml
+	kubectl apply -n cloud -f deploy/curl.yml
 
 .PHONY: undeploy-curl
 undeploy-curl:
-	kubectl delete -f deploy/curl.yml
+	kubectl delete -n cloud -f deploy/curl.yml
+
+.PHONY: deploy-ns
+deploy-ns:
+	kubectl create namespace cloud
+
+.PHONY: undeploy-ns
+undeploy-ns:
+	kubectl delete namespace cloud
 
 .PHONY: deploy
-deploy: deploy-eureka deploy-provider1 deploy-provider2 deploy-consumer deploy-curl
+deploy: deploy-ns deploy-eureka deploy-provider1 deploy-provider2 deploy-consumer deploy-curl
 
 .PHONY: undeploy
-undeploy: undeploy-eureka undeploy-provider1 undeploy-provider2 undeploy-consumer undeploy-curl
+undeploy: undeploy-eureka undeploy-provider1 undeploy-provider2 undeploy-consumer undeploy-curl undeploy-ns
 
 .PHONY: port-forward-eureka
 port-forward-eureka:

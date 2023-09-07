@@ -22,8 +22,8 @@ eureka:
 
 zuul:
   routes:
-    provider.serviceId: jcloud-provider1
+    provider.serviceId: cloud-provider1
     provider.path: /**
-  ignored-services: jcloud-provider # 不能再使用该路径访问
+  ignored-services: cloud-provider # 不能再使用该路径访问
   # ignored-services: "*" # 隐藏全部的
-  prefix: /j-cloud #公共的访问前缀
+  prefix: /cloud #公共的访问前缀
