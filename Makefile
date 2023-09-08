@@ -147,11 +147,11 @@ docker-build-cross: docker-build
 
 .PHONY: deploy-eureka
 deploy-eureka:
-	kubectl apply -n cloud -f deploy/eureka.yml
+	kubectl apply -n disco -f deploy/eureka.yml
 
 .PHONY: undeploy-eureka
 undeploy-eureka:
-	kubectl delete -n cloud -f deploy/eureka.yml
+	kubectl delete -n disco -f deploy/eureka.yml
 
 .PHONY: deploy-provider1
 deploy-provider1:
@@ -187,10 +187,12 @@ undeploy-curl:
 
 .PHONY: deploy-ns
 deploy-ns:
+	kubectl create namespace disco
 	kubectl create namespace cloud
 
 .PHONY: undeploy-ns
 undeploy-ns:
+	kubectl delete namespace disco
 	kubectl delete namespace cloud
 
 .PHONY: deploy
