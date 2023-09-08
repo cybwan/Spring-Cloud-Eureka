@@ -6,7 +6,7 @@ server:
 spring:
   application:
     # 应用名称,应用名称可以重复的
-    name: provider-user
+    name: cloud-provider
 
 # eureka 配置
 eureka:
